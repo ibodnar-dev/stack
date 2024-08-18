@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: kc-config
+data:
+  KEYCLOAK_DATABASE_URL: "jdbc:postgresql://postgres-cluster-rw.default.svc.cluster.local:5432/stack"
+  KEYCLOAK_DATABASE_PORT: "5432"
+  KEYCLOAK_DATABASE_NAME: "stack"
+  KEYCLOAK_DATABASE_USER: "stack"
+  KEYCLOAK_ADMIN: "user"

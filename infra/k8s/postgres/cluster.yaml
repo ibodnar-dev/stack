@@ -1,0 +1,17 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: postgres-cluster
+spec:
+  instances: 1
+  storage:
+    size: 1Gi
+  bootstrap:
+    initdb:
+      database: stack
+      owner: stack
+      localeCollate: en_US.UTF-8
+      encoding: UTF-8
+      localeCType: en_US.UTF-8
+      secret:
+        name: user-password
