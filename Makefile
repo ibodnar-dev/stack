@@ -16,6 +16,7 @@ install-cnpg-controller:
 	kubectl apply --server-side -f $(CNPG_MANIFEST_URL)
 
 install-cnpg-cluster:
+	kubectl apply -f ./infra/k8s/postgres/user-password-secret.yaml
 	kubectl apply -f ./infra/k8s/postgres/cluster.yaml
 
 build-dev-app-image:
