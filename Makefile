@@ -18,17 +18,8 @@ install-cnpg-controller:
 install-cnpg-cluster:
 	kubectl apply -f ./infra/k8s/postgres/cluster.yaml
 
-install-kc:
-	kubectl apply -f ./infra/k8s/keycloak/keycloak.yaml
-
-uninstall-kc:
-	kubectl delete -f ./infra/k8s/keycloak/keycloak.yaml
-
-build-dev-image:
+build-dev-app-image:
 	docker build -t $(IMAGE_NAME_DEV) -f ./infra/docker/app/dev.dockerfile .
 
-load-dev-image:
+load-dev-app-image:
 	kind load docker-image $(IMAGE_NAME_DEV) --name $(CLUSTER_NAME)
-
-port-forward-app:
-	kubectl port-forward service/app-service 8080:8081
