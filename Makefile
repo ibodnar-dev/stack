@@ -24,3 +24,7 @@ build-dev-app-image:
 
 load-dev-app-image:
 	kind load docker-image $(IMAGE_NAME_DEV) --name $(CLUSTER_NAME)
+
+install-app:
+	kubectl apply -f ./infra/k8s/app/service.yaml
+	kubectl apply -f ./infra/k8s/app/app.yaml
